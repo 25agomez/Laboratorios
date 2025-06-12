@@ -5,33 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LAB-03</title>
     <style>
-        body {
-            background-color: #e7fcfc;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font: bold 14px Arial, sans-serif;
-        }
-        .form-input {
-            width: 100%;
-            padding: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .submit-button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .submit-button:hover {
-            background-color: #357b38;
-        }
+      body {
+        background-color: #043b5b;
+        margin: auto;
+        font-family: Arial, sans-serif;
+      }
+      header {
+        background-color: #45c2bc;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+      h1 {
+        margin: 0;
+        font-size: 2em;
+        text-shadow: #043b5b 4px 4px 4px;
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+      }
+      nav button {
+        background-color: #3c9ca4;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 0 5px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      nav button:hover {
+        background-color: #246c7c;
+      }
+      #registration-form {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .registro-fieldset {
+        border: 2px solid #3c9ca4;
+        border-radius: 8px;
+        background-color: #f0f8ff; /* Light background for the form */
+      }
+      .registro-fieldset legend {
+        font-weight: bold;
+        color: #3c9ca4; /* Color for the legend */
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font: bold 14px Arial, sans-serif;
+      }
+      .form-input {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .form-input:focus {
+        border-color: #46818b; /* Color for focus state */
+        color: #46818b;
+        outline: none;
+      }
+      .genero-fieldset {
+        margin: 10px auto;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+      }
+      .genero-fieldset legend {
+        font-weight: bold;
+      }
+      #g-m,
+      #g-f,
+      #g-o,
+      #g-n,
+      input[type="radio"]:checked + label {
+        accent-color: #46818b; /* Cambia a tu color deseado */
+      }
+      .intereses-fieldset {
+        margin: auto;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+      }
+      #interest1,
+      #interest2,
+      #interest3,
+      #interest4,
+      #interest5,
+      #interest6,
+      #interest7,
+      input[type="checkbox"]:checked + label {
+        accent-color: #46818b; /* Cambia a tu color deseado */
+      }
+      .submit-button {
+        background-color: #3c9ca4;
+        color: white;
+        padding: 10px 15px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .submit-button:hover {
+        background-color: #246c7c;
+      }
+      #video {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      #video iframe {
+        width: 100%;
+        max-width: 750px;
+        height: 315px;
+        border: none;
+      }
+      footer {
+        background-color: #45c2bc;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        margin-top: 20px;
+      }
+      footer a {
+        color: white;
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
     </style>
   </head>
 
@@ -43,92 +157,157 @@
 
     <!--menu-->
     <nav>
-      <ul>
-        <li><a href="/lab02/index.html">Inicio</a></li>
-        <li><a href="#">Cursos</a></li>
-        <li><a href="#">Contactos</a></li>
-        <li><a href="#">Ayuda</a></li>
-      </ul>
+      <a href="https://uc.ac.cr/"><button>Inicio</button></a>
+      <a href="https://uc.ac.cr/grados-academicos/"><button>Cursos</button></a>
+      <a href="https://uc.ac.cr/contacto/"><button>Contactos</button></a>
+      <a href="mailto:soporte@uc.ac.cr"><button>Soporte Técnico</button></a>
     </nav>
 
     <main>
       <section>
         <!--section para poner formulario de registro-->
-        <form action="#" method="post">
-          <fieldset>
+        <form action="#" method="post" id="registration-form">
+          <fieldset class="registro-fieldset">
             <legend>Registro de Usuario</legend>
             <div class="form-group">
-                <label for="username">Nombre de usuario:</label>
-                <input class="form-input" type="text" id="username" name="username" required />
+              <label for="username">Nombre de usuario:</label>
+              <input
+                class="form-input"
+                type="text"
+                id="username"
+                name="username"
+                required
+              />
 
-                <label for="email">Correo electrónico:</label>
-                <input class="form-input" type="email" id="email" name="email" required />
+              <label for="email">Correo electrónico:</label>
+              <input
+                class="form-input"
+                type="email"
+                id="email"
+                name="email"
+                required
+              />
 
-                <label for="password">Contraseña:</label>
-                <input class="form-input" type="password" id="password" name="password" required />
+              <label for="password">Contraseña:</label>
+              <input
+                class="form-input"
+                type="password"
+                id="password"
+                name="password"
+                required
+              />
             </div>
-            
 
-            <fieldset> <!--selector de opci[on de genero-->
-                <legend>Genero</legend>
+            <fieldset class="genero-fieldset">
+              <!--selector de opcion de genero-->
+              <legend>Género</legend>
+              <div>
                 <div>
-                    <div>
-                        <input type="radio" value="m" name="" id="g-m">
-                        <label for="g-m">Masculino</label>
-                    </div>
-                    <div>
-                        <input type="radio" value="f" name="" id="g-f">
-                        <label for="g-f">Femenino</label>
-                    </div>
-                    <div>
-                        <input type="radio" value="o" name="" id="g-o">
-                        <label for="g-o">Otro</label>
-                    </div>
-                    <div>
-                        <input type="radio" value="n" name="" id="g-n">
-                        <label for="g-n">Prefiero no decirlo</label>
-                    </div>
+                  <input type="radio" value="m" name="genero" id="g-m" />
+                  <label for="g-m">Masculino</label>
                 </div>
+                <div>
+                  <input type="radio" value="f" name="genero" id="g-f" />
+                  <label for="g-f">Femenino</label>
+                </div>
+                <div>
+                  <input type="radio" value="o" name="genero" id="g-o" />
+                  <label for="g-o">Otro</label>
+                </div>
+                <div>
+                  <input type="radio" value="n" name="genero" id="g-n" />
+                  <label for="g-n">Prefiero no decirlo</label>
+                </div>
+              </div>
             </fieldset>
 
-            <fieldset> <!--selector multiple intereses-->
-                <legend>Seleccione sus intereses:</legend>
+            <fieldset class="intereses-fieldset">
+              <!--selector multiple intereses-->
+              <legend>Seleccione sus intereses:</legend>
+              <div>
                 <div>
-                    <div>
-                        <input type="checkbox" id="interest1" name="intereses" value="programacion">
-                        <label for="interest1">Programación</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="interest2" name="intereses" value="diseño">
-                        <label for="interest2">Diseño Gráfico</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="interest3" name="intereses" value="marketing">
-                        <label for="interest3">Marketing Digital</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="interest4" name="intereses" value="datos">
-                        <label for="interest3">Ciencia de Datos</label>
-                    </div>
+                  <input
+                    type="checkbox"
+                    id="interest1"
+                    name="intereses"
+                    value="programacion"
+                  />
+                  <label for="interest1">Programación</label>
                 </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="interest2"
+                    name="intereses"
+                    value="diseño"
+                  />
+                  <label for="interest2">Diseño Gráfico</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="interest3"
+                    name="intereses"
+                    value="marketing"
+                  />
+                  <label for="interest3">Marketing Digital</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="interest4"
+                    name="intereses"
+                    value="datos"
+                  />
+                  <label for="interest4">Ciencia de Datos</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="interest5"
+                    name="intereses"
+                    value="deportes"
+                  />
+                  <label for="interest5">Deportes</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="interest6"
+                    name="intereses"
+                    value="filosofía"
+                  />
+                  <label for="interest6">Filosofía</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="interest7"
+                    name="intereses"
+                    value="musica"
+                  />
+                  <label for="interest7">Música</label>
+                </div>
+              </div>
             </fieldset>
 
             <button class="submit-button" type="submit">Registrar</button>
           </fieldset>
         </form>
       </section>
-      <section>
-        <!--section para poner videos-->
+      <section id="video">
+        <!--section para poner video-->
         <iframe
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/R1k-g4ie7o0?si=PxJza4MUHK4YOO_F"
-          title="Video Incrustado"
+          src="https://www.youtube.com/embed/E1mYs7dw1qc?si=7ncwhlHGVhlhRYsv"
+          title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
-        ></iframe>
+        >
+        </iframe>
       </section>
     </main>
 
