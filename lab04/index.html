@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LAB-03</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!--encabezado de cuerpo-->
+    <header>
+      <h1>Plataforma Educativa Universidad Central</h1>
+    </header>
+
+    <!--menu-->
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/lab02/index.html">Inicio</a></li>
+        <li><a href="#">Cursos</a></li>
+        <li><a href="#">Contactos</a></li>
+        <li><a href="#">Ayuda</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section>
+        <!--section para poner formulario de registro-->
+        <form action="#" method="post">
+          <fieldset>
+            <legend>Registro de Usuario</legend>
+            <div class="form-group">
+                <label for="username">Nombre de usuario:</label>
+                <input class="form-input" type="text" id="username" name="username" required />
+
+                <label for="email">Correo electrónico:</label>
+                <input class="form-input" type="email" id="email" name="email" required />
+
+                <label for="password">Contraseña:</label>
+                <input class="form-input" type="password" id="password" name="password" required />
+            </div>
+            
+            <div class="flex-container">
+              <fieldset> <!--selector de opci[on de genero-->
+                <legend>Genero</legend>
+                <div>
+                    <div>
+                        <input type="radio" value="m" name="" id="g-m">
+                        <label for="g-m">Masculino</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="f" name="" id="g-f">
+                        <label for="g-f">Femenino</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="o" name="" id="g-o">
+                        <label for="g-o">Otro</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="n" name="" id="g-n">
+                        <label for="g-n">Prefiero no decirlo</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset> <!--selector multiple intereses-->
+                <legend>Seleccione sus intereses:</legend>
+                <div>
+                    <div>
+                        <input type="checkbox" id="interest1" name="intereses" value="programacion">
+                        <label for="interest1">Programación</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="interest2" name="intereses" value="diseño">
+                        <label for="interest2">Diseño Gráfico</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="interest3" name="intereses" value="marketing">
+                        <label for="interest3">Marketing Digital</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="interest4" name="intereses" value="datos">
+                        <label for="interest4">Ciencia de Datos</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="interest5" name="intereses" value="deportes">
+                        <label for="interest5">Deportes</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="interest6" name="intereses" value="filosofía">
+                        <label for="interest6">Filosofía</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="interest7" name="intereses" value="musica">
+                        <label for="interest7">Música</label>
+                    </div>
+                </div>
+            </fieldset>
+            </div>
+            
+
+            <button class="submit-button" type="submit">Registrar</button>
+          </fieldset>
+        </form>
+      </section>
+      <section id="video-section">
+        <!--section para poner videos-->
+        <iframe 
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/R1k-g4ie7o0?si=PxJza4MUHK4YOO_F"
+          title="Video Incrustado"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        © 2025 Plataforma Universidad Central. Todos los derechos reservados.
+      </p>
+      <p>
+        Contacto:
+        <a href="mailto:info@universidadcentral.ac.cr">Universidad Central</a>
+      </p>
+    </footer>
+  </body>
+</html>
