@@ -80,7 +80,7 @@ nav button:hover {
 #g-o,
 #g-n,
 input[type="radio"]:checked + label {
-  accent-color: #46818b; /* Cambia a tu color deseado */
+  accent-color: #46818b; /* Cambia a tu color deseado al seleccionar */
 }
 .intereses-fieldset {
   margin: auto;
@@ -96,7 +96,7 @@ input[type="radio"]:checked + label {
 #interest6,
 #interest7,
 input[type="checkbox"]:checked + label {
-  accent-color: #46818b; /* Cambia a tu color deseado */
+  accent-color: #46818b; /* Cambia a tu color deseado al seleccionar la casilla */
 }
 .submit-button {
   background-color: #3c9ca4;
@@ -106,10 +106,10 @@ input[type="checkbox"]:checked + label {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease; /*Genera transición suave al cambiar el color de fondo*/
 }
 .submit-button:hover {
-  background-color: #246c7c;
+  background-color: #246c7c; /* Cambia el color de fondo al pasar el mouse */
 }
 #video {
   display: flex;
