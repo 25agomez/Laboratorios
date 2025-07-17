@@ -3,6 +3,7 @@ include 'db.php';
 
 $nombre = trim($_POST['nombre'] ?? '');
 $correo = trim($_POST['correo'] ?? '');
+$action = $_POST['action'] ?? '';
 
 $errores = [];
 if ($nombre === '')  $errores[] = 'El nombre es obligatorio.';
