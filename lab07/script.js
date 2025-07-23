@@ -6,11 +6,13 @@ document.getElementById("validarBtn").addEventListener("click", function () {
 
   if (nombre === "" || apellido === "") {
     mensaje.textContent = "Debe completar todos los campos.";
-    mensaje.style.color = "red";
+    mensaje.className = "alert alert-danger";
   } else {
     mensaje.textContent = `Bienvenido, ${nombre} ${apellido}`;
-    mensaje.style.color = "green";
+    mensaje.className = "alert alert-success";
   }
+
+  Swal.fire(mensaje.textContent);
 });
 
 // jQuery: Agregar y quitar clase
@@ -27,22 +29,24 @@ $("#mostrarOcultar").click(function () {
   $("#elementoOculto").toggle();
 });
 
-//Cambiar de tema
 let temaOscuro = false;
 
 function alternarTema() {
   temaOscuro = temaOscuro ? false : true;
   if (!temaOscuro) {
+    document.getElementById("tema").className = "fa-solid fa-moon";
+  }
+  else {
     document.getElementById("tema").className = "fa-solid fa-sun";
   }
   document.getElementById("main").classList.toggle("oscuro");
 }
 
-//Contador dinámico
- let contador = 0;
-  const contadorElemento = document.getElementById("contador");
+// Contador dinámico
+let contador = 0;
+const contadorElemento = document.getElementById("contador");
 
-  const modificarContador = (cambio) => {
-    contador += cambio;
-    contadorElemento.textContent = contador;
-  };
+const modificarContador = (cambio) => {
+  contador += cambio;
+  contadorElemento.textContent = contador;
+};
