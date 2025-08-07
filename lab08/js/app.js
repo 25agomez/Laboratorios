@@ -1,7 +1,15 @@
-const apiUrl = 'http://localhost/II-51-LABS/lab08/api/usuarios.php';
+const apiUrl = 'https://backend-2nik25ie2-25agomezs-projects.vercel.app';
+
+const $token = 'Bearer UC2025-II51';
+const headers = {
+  'Authorization': $token,
+  'Content-Type': 'application/json'
+};
 
 function listarUsuarios() {
-  fetch(apiUrl)
+  fetch(apiUrl, {
+    headers
+  })
     .then(res => res.json())
     .then(data => {
       const lista = document.getElementById('lista');
@@ -29,7 +37,7 @@ function listarUsuarios() {
 function crearUsuario(nombre, email) {
   fetch(apiUrl, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers,
     body: JSON.stringify({ nombre, email })
   })
     .then(res => res.json())
@@ -39,7 +47,7 @@ function crearUsuario(nombre, email) {
 function actualizarUsuario(id, nombre, email) {
   fetch(`${apiUrl}?id=${id}`, {
     method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
+    headers,
     body: JSON.stringify({ nombre, email })
   })
     .then(res => res.json())
@@ -49,7 +57,8 @@ function actualizarUsuario(id, nombre, email) {
 function eliminarUsuario(id) {
   if (!confirm('¿Seguro que desea eliminar este usuario?')) return;
   fetch(`${apiUrl}?id=${id}`, {
-    method: 'DELETE'
+    method: 'DELETE',
+    headers
   })
     .then(() => listarUsuarios());
 }

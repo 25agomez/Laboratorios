@@ -1,13 +1,44 @@
 <?php
-header("Access-Control-Allow-Origin: https://rj72rh1w-80.use2.devtunnels.ms");
+// CORS
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
-header("Access-Control-Allow-Credentials: true");
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(204);
+    exit;
+}
+
+// Función segura para capturar el Authorization header
+function getAuthorizationHeader() {
+    if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
+        return trim($_SERVER['HTTP_AUTHORIZATION']);
+    }
+    if (function_exists('apache_request_headers')) {
+        $headers = apache_request_headers();
+        if (isset($headers['Authorization'])) {
+            return trim($headers['Authorization']);
+        }
+    }
+    return null;
+}
+
+$token = getAuthorizationHeader();
+
+if ($token !== 'Bearer UC2025-II51') {
+    http_response_code(403);
+    echo json_encode(['error' => 'Forbidden']);
+    exit;
+}
+
+// OK
+header('Content-Type: application/json');
+
+
 $apikey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFuZmxxemxmemVudGNvdWRhYW5wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMzMjA0OTMsImV4cCI6MjA2ODg5NjQ5M30.70delQ95ihNTvhekFLh-FMQiIu78hiuWBQRtVuQiCuo';
 $urlBase = 'https://qnflqzlfzentcoudaanp.supabase.co/rest/v1/usuarios';
 
 $method = $_SERVER['REQUEST_METHOD'];
-
 function callSupabase($method, $url, $data = null) {
     global $apikey;
 
@@ -39,14 +70,16 @@ function callSupabase($method, $url, $data = null) {
     curl_close($ch);
     return $response;
 }
-
+//leer
 if ($method === 'GET') {
     echo callSupabase('GET', $urlBase);
 }
+//escribir
 elseif ($method === 'POST') {
     $body = json_decode(file_get_contents('php://input'), true);
     echo callSupabase('POST', $urlBase, $body);
 }
+//actualizar
 elseif ($method === 'PUT') {
     $id = $_GET['id'] ?? null;
     if (!$id) { http_response_code(400); exit('ID requerido'); }
@@ -54,6 +87,7 @@ elseif ($method === 'PUT') {
     $url = $urlBase . '?id=eq.' . $id;
     echo callSupabase('PATCH', $url, $body);
 }
+//eliminar
 elseif ($method === 'DELETE') {
     $id = $_GET['id'] ?? null;
     if (!$id) { http_response_code(400); exit('ID requerido'); }
