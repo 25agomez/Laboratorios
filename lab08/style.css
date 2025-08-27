@@ -1,0 +1,8 @@
+.agregar {
+  background-color: brown; 
+  transition: background-color 0.3s ease;
+}
+
+.agregar:hover {
+  background-color: darkred;
+}
